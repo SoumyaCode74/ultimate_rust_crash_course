@@ -1,5 +1,6 @@
 // Silence some warnings so they don't distract from the exercise.
 #![allow(unused_mut, unused_variables)]
+use e_ownership_references::*;
 
 fn main() {
     // This fancy stuff either gets the first argument as a String, or prints
@@ -14,25 +15,34 @@ fn main() {
     // code with `cargo run apple` and `cargo run apples'.  Hint: use `.ends_with("s")` on the
     // String reference
     //
-    //inspect(&arg);
-
+    inspect(&arg);
     // 2. Write a function `change` that takes a *mutable* reference to a String and adds an "s" to
     // the String if it doesn't already end with "s". Then uncomment and run the code below with
     // `cargo run apple`.  Hint: use `.push_str("s")` on the mutable String reference to add an "s".
     //
-    //change(&mut arg);
-    //println!("I have many {}", arg);
+    change(&mut arg);
+    println!("I have many {}", arg);
 
     // 3. Write a function `eat` that accepts ownership of (consumes) a String and returns a bool
     // indicating whether or not the String both starts with a "b" AND contains an "a".
     // Hint 1: use `.starts_with("b")` and `.contains("a")`
     // Hint 2: `&&` is the boolean "AND" operator
     //
-    //if eat(arg) {
-    //    println!("Might be bananas");
-    //} else {
-    //    println!("Not bananas");
-    //}
+    if eat(arg) {
+       println!("Might be bananas");
+    } else {
+       println!("Not bananas");
+    }
+    
+    //My understanding of pass-by-value and pass-by-reference
+    // println!("{}", arg); This statement will give error as arg's ownership
+    //is transferred to the local variable of the function eat and dropped
+    //after the scope of the function is reached. To prevent this, referencing
+    //is needed. This is where we understand what happens in pass by value
+    //In pass by value, a clone of the passed argument is transferred to the
+    //called function, and hence the ownership remains intact and thus no
+    //borrowing issue appears. This is applicable to all other high level
+    //languages like C/C++/C#/Java/Python etc.
 
     // Try running this program with "boat", "banana", and "grapes" as the arguments :-)
 

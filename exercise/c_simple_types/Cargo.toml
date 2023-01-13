@@ -4,3 +4,4 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+# add the imported 3rd party packages using cargo add or manually

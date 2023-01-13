@@ -19,3 +19,6 @@ pub fn eat(s: String) -> bool{
         false
     }
 }
+pub fn bedazzle(s: &mut String){
+    (*s) = "sparkly".to_string();
+}

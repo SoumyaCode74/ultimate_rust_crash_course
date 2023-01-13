@@ -33,7 +33,7 @@ fn main() {
     } else {
        println!("Not bananas");
     }
-    
+
     //My understanding of pass-by-value and pass-by-reference
     // println!("{}", arg); This statement will give error as arg's ownership
     //is transferred to the local variable of the function eat and dropped
@@ -53,8 +53,8 @@ fn main() {
     // Hint: You will need to dereference the mutable reference in order to assign it a
     // new value.
     //
-    // let mut material = "mud".to_string();
-    // println!("This material is just `{}`.", material);
-    // bedazzle(&mut material);
-    // println!("Wow! Now the material is `{}`!", material);
+    let mut material = "mud".to_string();
+    println!("This material is just `{}`.", material);
+    bedazzle(&mut material);
+    println!("Wow! Now the material is `{}`!", material);
 }

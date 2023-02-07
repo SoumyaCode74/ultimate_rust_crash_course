@@ -20,7 +20,12 @@ trait Bite{
 struct Grapes{
     grapes_left: u32,
 }
-
+impl Grapes{
+    //An associated function
+    fn default(){
+        println!("Having grapes!");
+    }
+}
 // 3. Implement Bite for Grapes.  When you bite a Grapes, subtract 1 from how many grapes are left.
 // If you need a hint, look at how it was done for Carrot at the bottom of this file.
 //
@@ -43,8 +48,9 @@ fn main() {
     //let mut grapes = Grapes { amount_left: 100 };
     //grapes.bite();
     let mut grapes = Grapes { grapes_left: 100};
+    Grapes::default();
     grapes.bite();
-    println!("Eat a grape: {:?}", grapes);
+    println!("Eat a grape: {:#?}", grapes);
 
     // Challenge: Uncomment the code below. Create a generic `bunny_nibbles`
     // function that:
